@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+   http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<!-- 开启组件自动扫描，路径由base-package制定 -->
+	<context:component-scan base-package="com.ftsafe.iccd.bean" />
+	<!-- <bean id="loginService" class="com.ftsafe.iccd.bean.LoginService"></bean> -->
+	<bean id="client" class="com.ftsafe.iccd.bean.Client" scope="prototype" destroy-method="destroy" />
+	<bean id="foo" class="com.ftsafe.iccd.bean.Foo" factory-method="createInstance"
+		init-method="init" destroy-method="destroy">
+		<!-- <constructor-arg ref="client" /> -->
+		<!-- <property name="message" value="hello" /> -->
+	</bean>
+
+</beans>
